@@ -1,2 +1,2 @@
 # docs
-Documentation for Eichain
+Documentation for AkashaChain
