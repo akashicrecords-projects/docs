@@ -70,3 +70,12 @@ akashacored tx crosschain whitelist-erc20 0x55d398326f99059fF775485246999027B319
 bin/akashacored tx fungible remove-foreign-coin  0x65a45c57636f9BcCeD4fe193A602008578BcA90b --from operator --fees 20aakc
 bin/akashacored tx crosschain abort-stuck-cctx  0x7e8f0fdb62b1d86ea236c8caa0953809327ddfe22dacd3b3c727858ad58a9c44 --from operator --fees 20aakc
 ```
+## 7. 测试
+- eth从ethereum跨到akashic
+- eth从akashic跨到ethereum
+- usdt从ethereum跨到akashic
+- usdt从akashic跨到ethereum
+- bnb从bsc跨到akashic
+- bnb从akashic跨到bsc
+- usdt从bsc跨到akashic
+- usdt从akashic跨到bsc
