@@ -13,8 +13,8 @@ https://hub-mainnet.akashicrecords.io/
 https://hub-mainnet.akashicrecords.io/
 
 ## 5. akashic链上资产转账
-https://hub-mainnet.akashicrecords.io/
-metamask
+https://hub-mainnet.akashicrecords.io/  
+metamask  
 tp app
 
 ## 6. ethereum/bsc跨链到akashic的 eth/bnb原生资产
