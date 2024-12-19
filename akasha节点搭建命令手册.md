@@ -47,7 +47,7 @@ fs.file-max=262144
 ### 7.配置自动启动服务
 />sudo vi /etc/systemd/system/akashicored.service  
 [Unit]  
-Description=eicored  
+Description=akashicored  
 After=multi-user.target  
 StartLimitIntervalSec=0  
 [Install]  
@@ -57,11 +57,11 @@ WorkingDirectory=/opt/akashichain
 Type=simple  
 Restart=always  
 RestartSec=600  
-User=eichain  
+User=akashichain  
 LimitNOFILE=262144  
-ExecStart=/opt/akashichain/bin/eicored start --home=/opt/akashichain/data/  
+ExecStart=/opt/akashichain/bin/akashicored start --home=/opt/akashichain/data/  
 />sudo systemctl daemon-reload  
-/>sudo systemctl enable --now eicored  
+/>sudo systemctl enable --now akashicored  
 
 ### 8. 同步数据
 检查状态  
@@ -69,7 +69,7 @@ ExecStart=/opt/akashichain/bin/eicored start --home=/opt/akashichain/data/
 返回值中，如果"catching_up":false 表示正在同步； 如果"catching_up":false 表示同步完成  
   
 ## 成为验证节点
-### 9. 验证人拥有eic资产
+### 9. 验证人拥有AKC资产
 #### 9.1 创建验证人账号(以operator名为例)  
 />bin/akashicored keys add operator --algo eth_secp256k1 --home=./data  
   
@@ -101,7 +101,7 @@ ExecStart=/opt/akashichain/bin/eicored start --home=/opt/akashichain/data/
   --amount=10000000000000000000000aakc \
   --pubkey=$(bin/akashicored tendermint show-validator --home=./data) \
   --moniker="akashichain" \
-  --chain-id=eichain_9070-1 \
+  --chain-id=akashichain_9070-1 \
   --commission-rate="0.10" \
   --commission-max-rate="0.20" \
   --commission-max-change-rate="0.01" \
@@ -129,6 +129,6 @@ ExecStart=/opt/akashichain/bin/eicored start --home=/opt/akashichain/data/
 如果节点进入监狱，则执行命令出监狱
 />bin/akashicored tx slashing unjail --from=<验证人地址> --home=./data
 
-#### 9.6 其他用户向节点质押EIC
+#### 9.6 其他用户向节点质押AKC
 />bin/akashicored tx staking delegate $(bin/akashicored keys show operator --bech val -a --home=./data) < amount > --from=<user> --home=./data
   
