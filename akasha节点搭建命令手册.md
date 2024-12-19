@@ -17,21 +17,18 @@
   
 ### 3. 下载可执行文件
 />cd /opt/akashichain/bin/ 
-/>wget https://github.com/akashichain-projects/akclayer/releases/download/v0.0.2/akashichain.tar.gz-o/opt/akashichain/bin/akashichain.tar.gz  
-/>tar zvfx akashichain.tar.gz  
+/> // 联系运营商  
+/>tar zvfx akashichain-linux-x64.tar.gz  
 />chmod a+x /opt/akashichain/bin/akashicored  
   
 ### 4.  初始化链
 />cd  /opt/akashichain  
-/>bin/akashicored init <MONIKER> --chain-id akashichain_9071-1 --home=./data  
+/>bin/akashicored init *MONIKER* --chain-id akashichain_9071-1 --home=./data  
     mainnet: akashichain_9070-1； testnet: akashichain_9071-1； mocknet akashichain_19070-1;  
     MONIKER改为所在节点名字，只能是"字母+数字"组成  
   
 ### 5. 下载配置文件
-/>wget https://raw.githubusercontent.com/akashichain-projects/network-config/main/serenity/genesis.json -O ./data/config/genesis.json  
-/>wget https://raw.githubusercontent.com/akashichain-projects/network-config/main/serenity/client.toml -O ./data/config/client.toml  
-/>wget https://raw.githubusercontent.com/akashichain-projects/network-config/main/serenity/config.toml -O ./data/config/config.toml  
-/>wget https://raw.githubusercontent.com/akashichain-projects/network-config/main/serenity/app.toml -O ./data/config/app.toml  
+/> // 联系运营商
   
 ### 6.设置打开文件和进程的数量限制
 />sudo vi /etc/security/limits.conf  
