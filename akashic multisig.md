@@ -78,7 +78,7 @@ bin\akashacored tx bank send \
     test1 \
     akasha1e0fx0q9meawrcq7fmma9x60gk35lpr4xk3884m \
     10000000000000000000aakc \
-    --chain-id=akasha_9070-1 \
+    --chain-id=akchain_9070-1 \
     --gas=auto \
     --fees=1000000aakc \
     --broadcast-mode=block \
@@ -96,7 +96,7 @@ bin\akashacored tx bank send \
     5000000000000000000aakc \
     --gas=200000 \
     --fees=1000000aakc \
-    --chain-id=akasha_9070-1 \
+    --chain-id=akchain_9070-1 \
     --home=./data
     --generate-only > unsignedTx.json
 ```
@@ -152,7 +152,7 @@ bin\akashacored tx sign \
     --multisig=akasha1e0fx0q9meawrcq7fmma9x60gk35lpr4xk3884m \
     --from=test1 \
     --output-document=test1sig.json \
-    --chain-id=akasha_9070-1 \
+    --chain-id=akchain_9070-1 \
     --home=./data
 ```
 
@@ -162,7 +162,7 @@ bin\akashacored tx sign \
     --multisig=akasha1e0fx0q9meawrcq7fmma9x60gk35lpr4xk3884m \
     --from=test2 \
     --output-document=test2sig.json \
-    --chain-id=akasha_9070-1 \
+    --chain-id=akchain_9070-1 \
     --home=./data
 ```
 
@@ -176,7 +176,7 @@ bin\akashacored tx multisign \
     multi \
     test1sig.json test2sig.json \
     --output-document=signedTx.json \
-    --chain-id=akasha_9070-1
+    --chain-id=akchain_9070-1
 ```
 
 The TX is now signed:
@@ -268,7 +268,7 @@ The TX is now signed:
 
 ```
 bin\akashacored tx broadcast signedTx.json \
-    --chain-id=akasha_9070-1 \
+    --chain-id=akchain_9070-1 \
     --broadcast-mode=block \
     --home=./data
 ```
