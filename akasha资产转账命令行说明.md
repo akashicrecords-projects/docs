@@ -30,7 +30,7 @@ bin/akashacored tx vesting create-permanent-locked-account  \
 
 ```
 bin/akashacored tx vesting create-vesting-account  \ 
-    <to address> <amount> <end_timeunix timestamp>\
+    <to address> <amount> <end_time>\
     --delayed=true \
     --from=<from address> \
     --gas=200000 \
@@ -53,7 +53,7 @@ bin/akashacored tx vesting create-vesting-account  \
     --home=./data
 ```
 
-## 延迟到账 - 到期周期到账
+## 延迟到账 - 到期周期到账(deprecated)
 
 ```
 bin/akashacored tx vesting create-periodic-vesting-account  \ 
