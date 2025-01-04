@@ -12,7 +12,7 @@ Enter custom network information:
 - **Symbol**: AKC
 - **Block Explorer URL**: https://blockscan-testnet.akashicrecords.io/
 
-**1.2 Main Network (Coming Soon)**
+**1.2 Main Network**
 Enter custom network information:
 
 - **Network Name**: Akashic
@@ -23,7 +23,7 @@ Enter custom network information:
 -----
 **2. Installing MetaMask**
 
-**Reference**: https://zhuanlan.zhihu.com/p/411161857
+**Reference**: [https://zhuanlan.zhihu.com/p/411161857](https://support.metamask.io/getting-started/getting-started-with-metamask/)
 Visit the official MetaMask website, select the appropriate browser extension (e.g., Chrome, Firefox), and download and install the MetaMask extension.
 Once installed, click the MetaMask icon in the top-right corner of the browser to open MetaMask.
 
