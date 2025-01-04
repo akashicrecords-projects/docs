@@ -1,6 +1,7 @@
 # 多方式转账
 
 本文档仅描述命令行转账，且仅支持原生资产(目前仅为akc)的转账<br>
+`to_addr`要求新建但没有使用过的账户地址<br>
 命令行转账要求账号本地化保管
 
 ## 立即到账转账
@@ -173,11 +174,11 @@ pagination:
 ## 延迟到账 - 到期周期到账(deprecated)
 
 ```
-bin/akashacored tx vesting create-periodic-vesting-account  \ 
+bin/akashacored tx vesting create-periodic-vesting-account \
     <to address> <periods_json_file> \
     --from=<from address> \
     --gas=200000 \
-    --fees=1000000aakc \
+    --fees=100aakc \
     --chain-id=akchain_9070-1 \
     --home=./data
 
