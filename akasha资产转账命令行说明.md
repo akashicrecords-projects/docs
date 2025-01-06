@@ -4,6 +4,8 @@
 `to_address`要求新建但没有使用过的账户地址<br>
 `from account`要求账号本地化保存
 
+[释放规则说明](https://github.com/cosmos/cosmos-sdk/blob/main/x/auth/vesting/README.md#vesting-account-specification)
+
 ## 立即到账转账
 
 ```
@@ -43,6 +45,7 @@ bin/akashacored tx vesting create-permanent-locked-account \
     --chain-id=akchain_9070-1 \
     --home=./data
 ```
+
 例如:<br>
 ```
 />bin/akashacored tx vesting create-permanent-locked-account \
@@ -82,7 +85,8 @@ bin/akashacored tx vesting create-vesting-account \
     --chain-id=akchain_9070-1 \
     --home=./data
 ```
-The `end_time` must be provided as a UNIX epoch timestamp [在线工具](https://www.sjczhq.com/)
+The `end_time` must be provided as a UNIX epoch timestamp [在线工具](https://www.sjczhq.com/)<br>
+[释放规则说明](https://github.com/cosmos/cosmos-sdk/blob/main/x/auth/vesting/README.md#delayeddiscrete-vesting-accounts)
 
 举例：<br>
 ```
@@ -133,6 +137,8 @@ bin/akashacored tx vesting create-vesting-account \
     --chain-id=akchain_9070-1 \
     --home=./data
 ```
+[释放规则说明](https://github.com/cosmos/cosmos-sdk/blob/main/x/auth/vesting/README.md#continuously-vesting-accounts)
+
 举例:<br>
 ```
 />bin/akashacored tx vesting create-vesting-account \
@@ -183,3 +189,4 @@ bin/akashacored tx vesting create-periodic-vesting-account \
     --home=./data
 
 ```
+[释放规则说明](https://github.com/cosmos/cosmos-sdk/blob/main/x/auth/vesting/README.md#periodic-vesting-accounts)
