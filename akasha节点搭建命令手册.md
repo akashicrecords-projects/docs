@@ -32,14 +32,18 @@
   
 ### 6.设置打开文件和进程的数量限制
 />sudo vi /etc/security/limits.conf  
+```
 文件末尾添加：  
 \*       soft    nproc   262144
 \*       hard    nproc   262144
 \*       soft    nofile  262144
-\*       hard    nofile  262144  
+\*       hard    nofile  262144
+```
 />sudo vi /etc/sysctl.conf  
-文件末尾添加：  
-fs.file-max=262144  
+文件末尾添加：  <br>
+```
+fs.file-max=262144
+```
   
 ### 7.配置自动启动服务
 />sudo vi /etc/systemd/system/akashicored.service  
