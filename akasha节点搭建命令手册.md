@@ -32,8 +32,8 @@
   
 ### 6.设置打开文件和进程的数量限制
 />sudo vi /etc/security/limits.conf  
+文件末尾添加：  <br>
 ```
-文件末尾添加：  
 \*       soft    nproc   262144
 \*       hard    nproc   262144
 \*       soft    nofile  262144
