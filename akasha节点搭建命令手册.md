@@ -83,6 +83,7 @@ ExecStart=/opt/akashichain/bin/akashicored start --home=/opt/akashichain/data/
 />bin/akashicored query bank balances akasha197s5jdgq0tpra3gzypcqp4de3xjfz5sltujkps --home=./data  
   
 #### 9.3 成为验证人
+```
 />bin/akashicored tx staking create-validator \
   --amount=< 质押数量 > \
   --pubkey=$(bin/akashicored tendermint show-validator --home=./data) \
@@ -96,8 +97,9 @@ ExecStart=/opt/akashichain/bin/akashicored start --home=/opt/akashichain/data/
   --fees=<手续费> \
   --from=<验证人地址>\
   --home=./data  
-
+```
 举例说明：  
+```
 />bin/akashicored tx staking create-validator \
   --amount=10000000000000000000000aakc \
   --pubkey=$(bin/akashicored tendermint show-validator --home=./data) \
@@ -110,26 +112,34 @@ ExecStart=/opt/akashichain/bin/akashicored start --home=/opt/akashichain/data/
   --gas="600000" \
   --fees=6000000000000000aeis \
   --from=akasha197s5jdgq0tpra3gzypcqp4de3xjfz5sltujkps\
-  --home=./data  
+  --home=./data 
+```  
 返回交易hash  
 
 #### 9.4 检查状态
 检查成为验证人交易是否成功  
+```
 />bin/akashicored query tx <your transaction hash> --home=./data
-  
-检查验证人是否创建
+```  
+检查验证人是否创建  
+```
 />bin/akashicored query staking validator $(bin/akashicored keys show <验证人地址> --bech val -a --home=./data) --home=./data  
-
-检查节点是否在验证列表中
+```
+检查节点是否在验证列表中  
+```
 />bin/akashicored query tendermint-validator-set | grep $(bin/akashicored tendermint show-address --home=./data) --home=./data  
-  
+```  
 检查验证人签名状态  
+```
 />bin/akashicored query slashing signing-info $(bin/akashicored tendermint show-validator --home=./data) --home=./data  
-  
+```  
 ### 9.5 节点出狱
-如果节点进入监狱，则执行命令出监狱
+如果节点进入监狱，则执行命令出监狱  
+```
 />bin/akashicored tx slashing unjail --from=<验证人地址> --home=./data
-
+```
 #### 9.6 其他用户向节点质押AKC
+```
 />bin/akashicored tx staking delegate $(bin/akashicored keys show operator --bech val -a --home=./data) < amount > --from=<user> --home=./data
+```
   
