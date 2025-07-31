@@ -1,11 +1,13 @@
 # Pump文档
 
-&ensp; &ensp; 1个【NativeToken】=1 *1000 个AKC
 
-&ensp; &ensp; AKC按均价0.5美元计算<br>
 
 ## 一、Pump介绍<br>
 &ensp; &ensp;Pump 是一个为Memecoin创作者和交易者设计的创新平台，简化了代币创建和交易流程。用户仅需支付0.02个【NativeToken】的费用，输入代币名称并上传图片，即可轻松发布新代币。其他用户可以在定价曲线上买卖这些代币，从而形成公平启动的市场环境。当代币市值达到 $42,500时，平台会自动向Swap注入流动性并销毁，以确保安全性和流动性。此外，完成绑定曲线的创作者还能获得0.5个【NativeToken】作为奖励。
+
+&ensp; &ensp; 1个【NativeToken】=1 *1000 个AKC
+
+&ensp; &ensp; AKC按均价0.5美元计算
 
 ## 二、Pump的特点<br>
 &ensp; &ensp;1、低成本：仅需0.02个【NativeToken】即可发币。
