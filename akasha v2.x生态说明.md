@@ -19,9 +19,10 @@
 | nft market前端 |[ PC ](https://github.com/akashicrecords-projects/nft-market-pc) |main | 2.0.0 | |
 | nft market移动端 |[ Mobile ](https://github.com/akashicrecords-projects/nft-market-wap)| main | 2.0.0 | |
 | nft market后台 |[NFT-market-admin ](https://github.com/akashicrecords-projects/nft-market-admin)| main | 2.0.0 | |
-| safe多签 | | | | |
+| safe多签 |[Safe-infrastructure](https://github.com/akashicrecords-projects/safe-infrastructure)| main | 2.0.0 | |
 | pump | https://github.com/akashicrecords-projects/pump | main | v1.0.0 | |
 | tools | https://github.com/akashicrecords-projects/octopod-tools | | | |
+
 
 
 
