@@ -21,7 +21,8 @@
 | nft market后台 |[NFT-market-admin ](https://github.com/akashicrecords-projects/nft-market-admin)| main | 2.0.0 | |
 | safe多签 |[Safe-infrastructure](https://github.com/akashicrecords-projects/safe-infrastructure)| main | 2.0.0 | |
 | pump || main | v1.3.0 | |
-| tools |[ Web ](https://github.com/akashicrecords-projects/octopod-tools-web)/[Contracts](https://github.com/akashicrecords-projects/octopod-tools-contracts)| | | |
+| tools |[ Web ](https://github.com/akashicrecords-projects/octopod-tools-web)/[Contracts](https://github.com/akashicrecords-projects/octopod-tools-contracts)| main | 1.3.0 | |
+
 
 
 
