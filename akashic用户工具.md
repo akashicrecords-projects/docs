@@ -1,11 +1,9 @@
-# 用户工具
+# Akashic对外服务列表
 
 
 
 ## 1. 查自己地址的 各类跨链资产汇总、跨链转账、akashic链上资产转账--hub
 https://hub-mainnet.akashicrecords.io/#/main  <br> 
-metamask  <br> 
-tp app  <br> 
 
 ## 2. 查自己有哪些代币在akashic链上--evm浏览器 
 https://blockscout-mainnet.akashicrecords.io/  <br> 
@@ -50,6 +48,7 @@ https://cn.etherscan.com/address/0xF06e127a1a379d027eaFC9b207e20cA54207BC10 <br>
 
 ## 13. 迁移服务：
 https://assets-transfer.akashicrecords.io/    <br> 
+
 
 
 
