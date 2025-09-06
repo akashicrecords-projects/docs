@@ -20,4 +20,5 @@
 | nft market后台 | | | | |
 | safe多签 | | | | |
 | pump | https://github.com/akashicrecords-projects/pump | main | v1.0.0 | |
-| tools | | | | |
+| tools | https://github.com/akashicrecords-projects/octopod-tools | | | |
+
