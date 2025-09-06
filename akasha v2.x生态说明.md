@@ -1,28 +1,30 @@
-# Akashichain v2.x版本生态
+# Akashichain 生态说明
 
-## 1. 服务列表
+## 1. 服务
 | 服务名称 | git | 分支 | 版本 | 备注 |
 | ---- | ---- | ---- | ---- | ---- |
 | akchain| https://github.com/akashicrecords-projects/akchain | main | v2.0.3 | |
 | evm系统合约 | https://github.com/akashicrecords-projects/protocol-contracts | main | v2.0.0 | |
-| 跨链补偿服务 |https://github.com/akashicrecords-projects/service-backend/tree/main/CctxMonitor| main | v2.0.0 | |
-| 延迟到账服务 |[ 服务端](https://github.com/akashicrecords-projects/service-backend/tree/main/VestingMonitor)| main | v2.0.0 | |
-| evm浏览器|[ blockscout ](https://github.com/akashicrecords-projects/akcscan-evm)| main| v2.0.0 | |
-| native浏览器|[ akcScan](https://github.com/akashicrecords-projects/akc-scan)| main | v2.0.0 | |
-| hub服务|[web ](https://github.com/akashicrecords-projects/hub-frontend)| main | v2.0.0 | |
-| 迁移服务 |[Assets transfer ](https://github.com/akashicrecords-projects/service-backend/tree/main/chain_assets_transfer) | main | v2.0.0 | |
-| airdrop服务 | [web](https://github.com/akashicrecords-projects/akcctxairdrop) / [Airdrop service ](https://github.com/akashicrecords-projects/service-backend/tree/main/CrossChainAirdrop)| main | v2.0.0 | |
+| 跨链补偿服务 | https://github.com/akashicrecords-projects/service-backend/tree/main/CctxMonitor| main | v2.0.0 | |
+| 延迟到账服务 | https://github.com/akashicrecords-projects/service-backend/tree/main/VestingMonitor| main | v2.0.0 | |
+| evm浏览器| https://github.com/akashicrecords-projects/akcscan-evm | main| v2.0.0 | |
+| native浏览器 | https://github.com/akashicrecords-projects/akc-scan | main | v2.0.0 | |
+| hub-web | https://github.com/akashicrecords-projects/hub-frontend | main | v2.0.0 | |
+| airdrop前端 | https://github.com/akashicrecords-projects/akcctxairdrop | main | v2.0.0 | |
+| airdrop后端 | https://github.com/akashicrecords-projects/service-backend/tree/main/CrossChainAirdrop | main | v2.0.0 | |
 | airdrop合约 | https://github.com/akashicrecords-projects/akcctxairdrop-contracts | main |v1.0.1| |
 | swap 前端| https://github.com/akashicrecords-projects/akcswap-frontend-v3 | main | 2.0.0 | |
 | swap periphery | https://github.com/akashicrecords-projects/akcswap-periphery-v3 | main |1.1.0| |
 | swap core | https://github.com/akashicrecords-projects/akcswap-core-v3 | main | 1.0.0| |
-| nft market前端 |[ PC ](https://github.com/akashicrecords-projects/nft-market-pc) |main | 2.0.0 | |
-| nft market移动端 |[ Mobile ](https://github.com/akashicrecords-projects/nft-market-wap)| main | 2.0.0 | |
-| nft market后台 |[NFT-market-admin ](https://github.com/akashicrecords-projects/nft-market-admin)| main | 2.0.0 | |
-| safe多签 |[Safe-infrastructure](https://github.com/akashicrecords-projects/safe-infrastructure)| main | 2.0.0 | |
-| pump |[ Pump-web ](https://github.com/akashicrecords-projects/pump-web)/[ Contract ](https://github.com/akashicrecords-projects/pump#)| main | v1.0.0 | |
-| tools |[ Web ](https://github.com/akashicrecords-projects/octopod-tools-web)/[Contracts](https://github.com/akashicrecords-projects/octopod-tools-contracts)| main | 1.3.0 | |
-
+| nft market PC前端 | https://github.com/akashicrecords-projects/nft-market-pc |main | 2.0.0 | |
+| nft market 移动端 | https://github.com/akashicrecords-projects/nft-market-wap | main | 2.0.0 | |
+| nft market 后台 | https://github.com/akashicrecords-projects/nft-market-admin | main | 2.0.0 | |
+| safe多签 | https://github.com/akashicrecords-projects/safe-infrastructure | main | 2.0.0 | |
+| pump前端 | https://github.com/akashicrecords-projects/pump-web | main | v1.0.0 | |
+| pump合约 | https://github.com/akashicrecords-projects/pump | main | v1.0.0 | |
+| tools前端 | https://github.com/akashicrecords-projects/octopod-tools-web | main | 1.3.0 | |
+| tools合约 | https://github.com/akashicrecords-projects/octopod-tools-contracts | main | 1.3.0 | |
+| 迁移服务 | https://github.com/akashicrecords-projects/service-backend/tree/main/chain_assets_transfer | main | v2.0.0 | |
 
 
 
