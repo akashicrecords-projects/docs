@@ -1,15 +1,2 @@
 # Akasha 运营所需关注的地址
 
-## v2.x(硬分叉)
-### 跨链TSS地址
-0x01E0bC38B0f0A35EAc8656C01e74Bd5A128d6dE7
-
-## v1.x
-### 跨链TSS地址
-0xF06e127a1a379d027eaFC9b207e20cA54207BC10
-
-### 空投奖励地址(合约地址)
-0x8275a7539562F2a2a05e3651BD841F3601e43236
-
-### 延迟到账proxy地址
-0xd8E1F4EeFEba5E5389f056ceBC1c3cC931F0D52d
