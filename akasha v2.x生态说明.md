@@ -13,7 +13,7 @@
 | 迁移服务 |[Assets transfer ](https://github.com/akashicrecords-projects/service-backend/tree/main/chain_assets_transfer) | main | v2.0.0 | |
 | airdrop服务 | [web](https://github.com/akashicrecords-projects/akcctxairdrop) / [Airdrop service ](https://github.com/akashicrecords-projects/service-backend/tree/main/CrossChainAirdrop)| main | v2.0.0 | |
 | airdrop合约 | https://github.com/akashicrecords-projects/akcctxairdrop-contracts | main |v1.0.1| |
-| swap 前端| https://github.com/akashicrecords-projects/akcswap-frontend-v3 | | | |
+| swap 前端| https://github.com/akashicrecords-projects/akcswap-frontend-v3 | main | 2.0.0 | |
 | swap periphery | https://github.com/akashicrecords-projects/akcswap-periphery-v3 | | | |
 | swap core | https://github.com/akashicrecords-projects/akcswap-core-v3 | | | |
 | nft market前端 | | | | |
@@ -22,6 +22,7 @@
 | safe多签 | | | | |
 | pump | https://github.com/akashicrecords-projects/pump | main | v1.0.0 | |
 | tools | https://github.com/akashicrecords-projects/octopod-tools | | | |
+
 
 
 
