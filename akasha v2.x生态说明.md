@@ -10,7 +10,7 @@
 | evm浏览器|[ blockscout ](https://github.com/akashicrecords-projects/akcscan-evm)| main| v2.0.0 | |
 | native浏览器|[ akcScan](https://github.com/akashicrecords-projects/akc-scan)| main | v2.0.0 | |
 | hub服务|[web ](https://github.com/akashicrecords-projects/hub-frontend)| main | v2.0.0 | |
-| 迁移服务 |[assets transfer ](https://github.com/akashicrecords-projects/service-backend/tree/main/chain_assets_transfer) / [ service ](https://github.com/akashicrecords-projects/service-backend/tree/main/CrossChainAirdrop)| main | v2.0.0 | |
+| 迁移服务 |[assets transfer ](https://github.com/akashicrecords-projects/service-backend/tree/main/chain_assets_transfer)  / [ service ](https://github.com/akashicrecords-projects/service-backend/tree/main/CrossChainAirdrop)| main | v2.0.0 | |
 | airdrop服务 | [web](https://github.com/akashicrecords-projects/akcctxairdrop) | main | v2.0.0 | |
 | airdrop合约 | https://github.com/akashicrecords-projects/akcctxairdrop-contracts | main |v1.0.1| |
 | swap 前端| https://github.com/akashicrecords-projects/akcswap-frontend-v3 | | | |
@@ -22,6 +22,7 @@
 | safe多签 | | | | |
 | pump | https://github.com/akashicrecords-projects/pump | main | v1.0.0 | |
 | tools | https://github.com/akashicrecords-projects/octopod-tools | | | |
+
 
 
 
