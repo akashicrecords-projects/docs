@@ -8,7 +8,7 @@
 | 跨链补偿服务 |https://github.com/akashicrecords-projects/service-backend/tree/main/CctxMonitor| main | v2.0.0 | |
 | 延迟到账服务 |[ 服务端](https://github.com/akashicrecords-projects/service-backend/tree/main/VestingMonitor)| main | v2.0.0 | |
 | evm浏览器|[ blockscout ](https://github.com/akashicrecords-projects/akcscan-evm)| main| v2.0.0 | |
-| native浏览器| | | | |
+| native浏览器|[ akcScan](https://github.com/akashicrecords-projects/akc-scan)| main | v20.0.0 | |
 | hub服务| | | | |
 | 迁移服务 | | | | |
 | airdrop服务 | https://github.com/akashicrecords-projects/akcctxairdrop | | | |
@@ -22,6 +22,7 @@
 | safe多签 | | | | |
 | pump | https://github.com/akashicrecords-projects/pump | main | v1.0.0 | |
 | tools | https://github.com/akashicrecords-projects/octopod-tools | | | |
+
 
 
 
