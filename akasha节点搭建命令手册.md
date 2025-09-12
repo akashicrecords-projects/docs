@@ -17,18 +17,18 @@
   
 ### 3. 下载可执行文件
 />cd /opt/akashichain/bin/ 
-/> // 联系运营商  
-/>tar zvfx akashichain-linux-x64.tar.gz  
+/>wget https://github.com/akashicrecords-projects/akchain/releases/download/v2.0.3/akashacored-linux-amd64    
+/>mv akashacored-linux-amd64 akashicored
 />chmod a+x /opt/akashichain/bin/akashicored  
   
 ### 4.  初始化链
 />cd  /opt/akashichain  
-/>bin/akashicored init *MONIKER* --chain-id akashichain_9071-1 --home=./data  
-    mainnet: akashichain_9070-1； testnet: akashichain_9071-1； mocknet akashichain_19070-1;  
+/>bin/akashicored init *MONIKER* --chain-id=*id* --home=./data  
+    id: mainnet - akchain_9070-1； testnet - akchain_9071-1； mocknet - akchain_19070-1;  
     MONIKER改为所在节点名字，只能是"字母+数字"组成  
   
 ### 5. 下载配置文件
-/> // 联系运营商
+配置文件在https://github.com/akashicrecords-projects/network-config/blob/main/mainnet目录
   
 ### 6.设置打开文件和进程的数量限制
 />sudo vi /etc/security/limits.conf  
@@ -143,3 +143,4 @@ ExecStart=/opt/akashichain/bin/akashicored start --home=/opt/akashichain/data/
 />bin/akashicored tx staking delegate $(bin/akashicored keys show operator --bech val -a --home=./data) < amount > --from=<user> --home=./data
 ```
   
+
