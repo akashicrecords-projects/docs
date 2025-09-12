@@ -143,4 +143,5 @@ ExecStart=/opt/akashichain/bin/akashicored start --home=/opt/akashichain/data/
 />bin/akashicored tx staking delegate $(bin/akashicored keys show operator --bech val -a --home=./data) < amount > --from=<user> --home=./data
 ```
   
+说明： 以上命令均可通过hub UI操作完成
 
