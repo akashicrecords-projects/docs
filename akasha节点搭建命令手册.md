@@ -16,15 +16,15 @@
 />mkdir /opt/akashichain/bin /opt/akashichain/data  
   
 ### 3. 下载可执行文件
-/>cd /opt/akashichain/bin/ 
+/>cd /opt/akashichain/bin/  
 />wget https://github.com/akashicrecords-projects/akchain/releases/download/v2.0.3/akashacored-linux-amd64    
-/>mv akashacored-linux-amd64 akashicored
+/>mv akashacored-linux-amd64 akashicored  
 />chmod a+x /opt/akashichain/bin/akashicored  
   
 ### 4.  初始化链
 />cd  /opt/akashichain  
 />bin/akashicored init *MONIKER* --chain-id=*id* --home=./data  
-    id: mainnet - akchain_9070-1； testnet - akchain_9071-1； mocknet - akchain_19070-1;  
+    id: *mainnet* - akchain_9070-1； *testnet* - akchain_9071-1； *mocknet* - akchain_19070-1;  
     MONIKER改为所在节点名字，只能是"字母+数字"组成  
   
 ### 5. 下载配置文件
