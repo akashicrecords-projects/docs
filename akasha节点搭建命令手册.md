@@ -17,8 +17,9 @@
   
 ### 3. 下载可执行文件
 />cd /opt/akashichain/bin/  
-/>wget https://github.com/akashicrecords-projects/akchain/releases/download/v2.0.3/akashacored-linux-amd64    
-/>mv akashacored-linux-amd64 akashicored  
+/>wget [akashacored-linux-amd64.bin.tar.gz](https://github.com/akashicrecords-projects/deploying-binary2/blob/main/akashacored-linux-amd64.bin.tar.gz)    
+/>tar zvfx akashacored-linux-amd64.bin.tar.gz
+/>mv akashacored-linux-amd64.bin akashicored  
 />chmod a+x /opt/akashichain/bin/akashicored  
   
 ### 4.  初始化链
@@ -28,7 +29,7 @@
     MONIKER改为所在节点名字，只能是"字母+数字"组成  
   
 ### 5. 下载配置文件
-[config目录配置文件](https://github.com/akashicrecords-projects/network-config/tree/main/mainnet)下载，并拷贝到data目录覆盖到config目录
+[下载config目录配置文件](https://github.com/akashicrecords-projects/network-config/tree/main/mainnet)，拷贝到data目录覆盖到config目录
   
 ### 6.设置打开文件和进程的数量限制
 />sudo vi /etc/security/limits.conf  
