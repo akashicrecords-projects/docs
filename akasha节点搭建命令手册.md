@@ -18,7 +18,7 @@
 ### 3. 下载可执行文件
 />cd /opt/akashichain/bin/  
 />wget [akashacored-linux-amd64.bin.tar.gz](https://github.com/akashicrecords-projects/deploying-binary2/blob/main/akashacored-linux-amd64.bin.tar.gz)    
-/>tar zvfx akashacored-linux-amd64.bin.tar.gz
+/>tar zvfx akashacored-linux-amd64.bin.tar.gz  
 />mv akashacored-linux-amd64.bin akashicored  
 />chmod a+x /opt/akashichain/bin/akashicored  
   
