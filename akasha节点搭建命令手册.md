@@ -29,7 +29,8 @@
     MONIKER改为所在节点名字，只能是"字母+数字"组成  
   
 ### 5. 下载配置文件
-[下载config目录配置文件](https://github.com/akashicrecords-projects/network-config/tree/main/mainnet)，拷贝到data目录覆盖到config目录
+- [下载config目录配置文件](https://github.com/akashicrecords-projects/network-config/tree/main/mainnet)，拷贝到data目录覆盖到config目录  
+- 修改data/config/config.toml文件：设置moniker = *上述第4步骤设置的MONIKER*  
   
 ### 6.设置打开文件和进程的数量限制
 />sudo vi /etc/security/limits.conf  
