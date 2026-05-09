@@ -28,7 +28,7 @@
     MONIKER改为所在节点名字，只能是"字母+数字"组成  
   
 ### 5. 下载配置文件
-配置文件在https://github.com/akashicrecords-projects/network-config/blob/main/mainnet目录
+[config目录配置文件](https://github.com/akashicrecords-projects/network-config/tree/main/mainnet)下载，并拷贝到data目录覆盖到config目录
   
 ### 6.设置打开文件和进程的数量限制
 />sudo vi /etc/security/limits.conf  
@@ -67,7 +67,7 @@ ExecStart=/opt/akashichain/bin/akashicored start --home=/opt/akashichain/data/
 ### 8. 同步数据
 检查状态  
 />curl localhost:26657/status  
-返回值中，如果"catching_up":false 表示正在同步； 如果"catching_up":false 表示同步完成  
+返回值中，如果"catching_up":true 表示正在同步； 如果"catching_up":false 表示同步完成  
   
 ## 成为验证节点
 ### 9. 验证人拥有AKC资产
