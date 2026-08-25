@@ -71,7 +71,7 @@
 
 在正式升级前，应确认以下内容：
 
-- 支持 EIP-7702 的 AKChain 新版本节点软件已经发布。
+- 支持 EIP-7702 的 AKChain 新版本节点软件已经发布。[v2.0.4](https://github.com/akashicrecords-projects/akchain/releases/tag/v2.0.4)
 - 所有验证节点均可以获取新版本软件。
 - 所有观察节点均可以获取新版本软件。
 - 新旧版本节点的兼容性已经完成测试。
@@ -116,10 +116,12 @@
 该高度应设置为本次升级前需要备份的区块高度：
 
 ```text
-BACKUP_HEIGHT = xxx
+--halt-height=xxx
+或者
+--halt-time=xxx[Minimum block time (in Unix seconds)]
 ```
 
-节点运行至 `BACKUP_HEIGHT` 后自动停止。
+节点运行至 `halt-height` 或`halt-time`后自动停止。
 
 此时节点的数据状态即对应升级前确定的备份高度。
 
@@ -127,7 +129,7 @@ BACKUP_HEIGHT = xxx
 
 ## 4.4 执行全量备份
 
-确认节点已经在 `BACKUP_HEIGHT` 停止后，执行完整数据备份。
+确认节点已经在 `halt-height` 停止后，执行完整数据备份。
 
 备份方式可以采用：
 
@@ -172,9 +174,9 @@ BACKUP_HEIGHT = xxx
 提案至少应包含：
 
 - 升级名称：EIP-7702
-- 升级版本：xxx
-- 升级高度：`UPGRADE_HEIGHT`
-- 新节点软件版本：xxx
+- 升级版本：v2.0.3
+- 升级高度：`halt-height`
+- 新节点软件版本：v2.0.4
 - 升级生效规则
 - 升级实施时间
 - 升级风险及回滚方案
@@ -520,7 +522,7 @@ NEW_NODE_START_HEIGHT = yyy + 20
 | 升级高度 | `yyy` |
 | 快照高度 | `yyy + 10` |
 | 新节点启动高度 | `yyy + 20` |
-| 新节点软件版本 | `xxx` |
+| 新节点软件版本 | `v2.0.4` |
 | 升级提案 | `xxx` |
 | 投票权重门槛 | `xxx` |
 | 快照节点 | `xxx` |
