@@ -173,7 +173,7 @@
 
 提案至少应包含：
 
-- 升级名称：EIP-7702
+- 升级名称：eip7702
 - 升级版本：v2.0.3
 - 升级高度：`halt-height`
 - 新节点软件版本：v2.0.4
@@ -564,3 +564,272 @@ NEW_NODE_START_HEIGHT
 ```
 
 上述高度应在正式升级前由 AKChain 网络治理及技术团队最终确认，并在升级公告、节点配置及操作记录中保持一致。
+
+## 15. 升级操作相关命令
+
+生产环境按节点服务器本机执行。把变量改成实际值。
+
+### 15.1 变量
+
+```bash
+CHAIN_ID=akchain_9070-1
+HOME_DIR=./data
+BIN=./bin/akashacored
+DENOM=aakc
+SERVICE=akashacored
+
+BAT_HEIGHT=100
+
+UPGRADE_NAME=eip7702
+UPGRADE_HEIGHT=150
+PROPOSAL_ID=1
+
+SNAPSHOT_HEIGHT=160
+
+NEW_BIN=./bin/akashacored-v2.0.4
+```
+
+查当前高度：
+
+```bash
+${BIN} status --node tcp://127.0.0.1:26657 | jq -r '[.sync_info.latest_block_height, .sync_info.latest_block_hash, (.sync_info.catching_up|tostring)] | @tsv'
+```
+
+### 15.2 提交升级提案
+
+```bash
+${BIN} tx upgrade software-upgrade ${UPGRADE_NAME} \
+  --upgrade-height ${UPGRADE_HEIGHT} \
+  --title ${UPGRADE_NAME} \
+  --summary "enable eip7702" \
+  --deposit 10000000${DENOM} \
+  ${TX_FLAGS}
+```
+
+查询：
+
+```bash
+${BIN} query gov proposals --node tcp://127.0.0.1:26657 -o json
+${BIN} query gov proposal ${PROPOSAL_ID} --node tcp://127.0.0.1:26657 -o json
+${BIN} query upgrade plan --node tcp://127.0.0.1:26657 -o json
+```
+
+### 15.3 投票
+
+每个验证节点都执行：
+
+```bash
+${BIN} tx gov vote ${PROPOSAL_ID} yes ${TX_FLAGS}
+```
+
+查询投票：
+
+```bash
+${BIN} query gov votes ${PROPOSAL_ID} --node tcp://127.0.0.1:26657 -o json
+${BIN} query gov proposal ${PROPOSAL_ID} --node tcp://127.0.0.1:26657 -o json
+```
+
+### 15.4 到升级高度后替换程序
+
+旧程序到升级高度会停止，日志类似：
+
+```text
+UPGRADE "eip7702" NEEDED at height: 150
+```
+
+每个节点执行：
+
+```bash
+sudo systemctl stop ${SERVICE}
+sudo cp ${BIN} ${BIN}.bak.$(date +%Y%m%d%H%M%S)
+sudo cp ${NEW_BIN} ${BIN}
+sudo chmod +x ${BIN}
+sudo systemctl start ${SERVICE}
+```
+
+如果不是 systemd 启动，手动启动示例：
+
+```bash
+${BIN} start --home=${HOME_DIR} --json-rpc.api eth,txpool,personal,net,debug,web3,miner --api.enable
+```
+
+确认升级已执行：
+
+```bash
+${BIN} query upgrade applied ${UPGRADE_NAME} --node tcp://127.0.0.1:26657 -o json
+```
+
+正常返回：
+
+```json
+{"height":"150"}
+```
+### 15.5 开启 Snapshot
+
+至少 1 个节点开启 snapshot，至少 2 个节点 RPC 能被新节点访问。
+
+正式环境建议：
+
+```text
+snapshot-interval = 1000
+snapshot-keep-recent = 2
+```
+
+在提供 snapshot 的节点执行：
+
+```bash
+sed -i 's/^snapshot-interval = .*/snapshot-interval = 1000/' ${HOME_DIR}/config/app.toml
+sed -i 's/^snapshot-keep-recent = .*/snapshot-keep-recent = 2/' ${HOME_DIR}/config/app.toml
+sed -i 's#^laddr = "tcp://127.0.0.1:26657"#laddr = "tcp://0.0.0.0:26657"#' ${HOME_DIR}/config/config.toml
+sudo systemctl restart ${SERVICE}
+```
+
+第二个 RPC 节点只需要打开 RPC：
+
+```bash
+sed -i 's#^laddr = "tcp://127.0.0.1:26657"#laddr = "tcp://0.0.0.0:26657"#' ${HOME_DIR}/config/config.toml
+sudo systemctl restart ${SERVICE}
+```
+
+查看 snapshot：
+
+```bash
+${BIN} snapshots list --home=${HOME_DIR}
+```
+
+### 15.6 新节点从指定高度 State Sync
+
+`trust_height` 必须大于升级高度。
+
+在已升级节点上获取信任高度和 hash：
+
+```bash
+${BIN} status --node tcp://127.0.0.1:26657 | jq -r '[.sync_info.latest_block_height, .sync_info.latest_block_hash] | @tsv'
+```
+
+在新节点服务器设置：
+
+```bash
+TRUST_HEIGHT=14312
+TRUST_HASH=2AEE587848C3F8B5B2E9EED65139ABB6B12133D6DA0B8BCACE31766575CE642E
+RPC_SERVERS="http://node1.example.com:26657,http://node2.example.com:26657"
+PEERS="node_id_1@node1.example.com:26656,node_id_2@node2.example.com:26656"
+GENESIS=/path/to/genesis.json
+```
+
+初始化新节点：
+
+```bash
+${BIN} init akasha-sync --chain-id ${CHAIN_ID} --home ${HOME_DIR}
+cp ${GENESIS} ${HOME_DIR}/config/genesis.json
+```
+
+配置 state sync：
+
+```bash
+sed -i 's/^db_backend = .*/db_backend = "pebbledb"/' ${HOME_DIR}/config/config.toml
+sed -i 's/^addr_book_strict = .*/addr_book_strict = false/' ${HOME_DIR}/config/config.toml
+sed -i "s/^persistent_peers = .*/persistent_peers = \"${PEERS}\"/" ${HOME_DIR}/config/config.toml
+sed -i 's/^enable = false/enable = true/' ${HOME_DIR}/config/config.toml
+sed -i "s#^rpc_servers = .*#rpc_servers = \"${RPC_SERVERS}\"#" ${HOME_DIR}/config/config.toml
+sed -i "s/^trust_height = .*/trust_height = ${TRUST_HEIGHT}/" ${HOME_DIR}/config/config.toml
+sed -i "s/^trust_hash = .*/trust_hash = \"${TRUST_HASH}\"/" ${HOME_DIR}/config/config.toml
+```
+
+启动新节点：
+
+```bash
+sudo systemctl start ${SERVICE}
+```
+
+如果不是 systemd：
+
+```bash
+${BIN} start --home=${HOME_DIR} --json-rpc.api eth,txpool,personal,net,debug,web3,miner --api.enable
+```
+
+查看结果：
+
+```bash
+journalctl -u ${SERVICE} -f
+${BIN} status --node tcp://127.0.0.1:26657 | jq -r '[.sync_info.latest_block_height, .sync_info.latest_block_hash, (.sync_info.catching_up|tostring)] | @tsv'
+```
+
+成功日志包含：
+
+```text
+Starting state sync
+Snapshot accepted, restoring
+Snapshot restored
+Time to switch to consensus reactor
+```
+
+### 15.7 创世文件修改
+
+只在建链前修改 genesis。链已经运行后不要改 genesis。
+
+```bash
+GENESIS_IN=${HOME_DIR}/config/genesis.json
+GENESIS_OUT=/tmp/genesis-updated.json
+OPERATOR_ADDRESS=akasha...
+DENOM=aakc
+```
+
+```bash
+jq --arg operator_address "${OPERATOR_ADDRESS}" \
+  '.app_state.authority.policies.items[0].address=$operator_address
+  | .app_state.authority.policies.items[1].address=$operator_address
+  | .app_state.authority.policies.items[2].address=$operator_address
+  | .app_state.gov.deposit_params.max_deposit_period="120s"
+  | .app_state.gov.voting_params.voting_period="80s"
+  | .app_state.gov.params.max_deposit_period="120s"
+  | .app_state.gov.params.voting_period="80s"
+  | .app_state.gov.params.expedited_voting_period="40s"
+  | .app_state.evm.params.evm_denom="'"${DENOM}"'"
+  | .app_state.crisis.constant_fee.denom="'"${DENOM}"'"
+  | .app_state.gov.deposit_params.min_deposit[0].denom="'"${DENOM}"'"
+  | .app_state.gov.params.min_deposit[0].denom="'"${DENOM}"'"
+  | .app_state.gov.params.expedited_min_deposit[0].denom="'"${DENOM}"'"
+  | .app_state.staking.params.bond_denom="'"${DENOM}"'"
+  | .consensus_params.block.max_gas="500000000"' \
+  ${GENESIS_IN} > ${GENESIS_OUT}
+```
+
+覆盖前先校验：
+
+```bash
+cp ${GENESIS_OUT} ${HOME_DIR}/config/genesis.json
+${BIN} validate-genesis --home=${HOME_DIR}
+```
+
+加测试账户余额：
+
+```bash
+${BIN} add-genesis-account akasha... "1000000000000000000000000${DENOM}" --home=${HOME_DIR}
+```
+
+生成 gentx：
+
+```bash
+${BIN} gentx operator "2000000000000000000000000${DENOM}" \
+  --chain-id=${CHAIN_ID} \
+  --keyring-backend=test \
+  --gas-prices "20000000000${DENOM}" \
+  --home=${HOME_DIR}
+
+${BIN} collect-gentxs --home=${HOME_DIR}
+${BIN} validate-genesis --home=${HOME_DIR}
+```
+
+最后把同一个 `${HOME_DIR}/config/genesis.json` 分发到所有节点。
+
+### 15.8 注意
+
+- `UPGRADE_NAME` 必须是 `eip7702`。
+- 每个验证节点都要投票，除非投票权已经足够通过。
+- 每个验证节点都要在升级高度停止后替换新程序。
+- state sync 至少需要 1 个 snapshot 节点和 2 个 RPC 节点。
+- `trust_height` 必须大于升级高度，`trust_hash` 必须和该高度匹配。
+- 新程序不要从 genesis 直接同步旧升级历史，使用升级后的 state sync。
+- 生产不要用 `snapshot-interval = 10`，建议 `1000` 或 `5000`。
+- 不要重置生产 validator 的 `priv_validator_state.json`。
